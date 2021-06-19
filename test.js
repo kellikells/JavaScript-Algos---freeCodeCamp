@@ -4,9 +4,9 @@
 // 1 + 4 + + 2 3
 
 
-sumAll([1, 4]);
-sumAll([5, 10]);
-sumAll([10, 5]);
+// sumAll([1, 4]);
+// sumAll([5, 10]);
+// sumAll([10, 5]);
 
 
 function sumAll(arr) {
@@ -54,12 +54,6 @@ function sumAll(arr) {
 //     Note: You can return the array with its elements in any order.
 //     Note: You can return the array with its elements in any order.
 
-
-
-
-
-
-
 // diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]) should return an array.
 
 // ["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"] should return ["pink wool"].
@@ -71,7 +65,16 @@ function sumAll(arr) {
 // -----------------------------------------
 
 
-
+function check (firstAndLast) {
+    let index;
+    for (let i = 1; i < firstAndLast.length; i++) {
+        if (firstAndLast[i].match(/[A-Z]/)) {
+            console.log(firstAndLast.slice(0, i));
+            console.log(firstAndLast.slice(i));
+        }
+    }
+}
+check('KelliHello');
 // -----------------------------------------
 
 

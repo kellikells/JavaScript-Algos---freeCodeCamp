@@ -140,7 +140,7 @@ function spinalCase(str) {
 
 // - If a word begins with a vowel, just add way at the end.
 function translatePigLatin(str) {
-    for (let i = 0; i < str.length; i++){
+    for (let i = 0; i < str.length; i++) {
         if (str[i].match(/[aeiou]/) && i == 0) {
             return str.concat('way');
         }
@@ -163,26 +163,113 @@ function translatePigLatin(str) {
 // Second argument is the word that you will be replacing(before).
 // Third argument is what you will be replacing the second argument with (after).
 
-    Note: Preserve the case of the first character in the original word when you are replacing it.For example if you mean to replace the word Book with the word dog, it should be replaced as Dog
+// Note: Preserve the case of the first character in the original word when you are replacing it.For example if you mean to replace the word Book with the word dog, it should be replaced as Dog
 
+function myReplace(str, before, after) {
+    let arr = str.split(' ');
+    let replacedArr = arr.map(word => {
+        return word != before
+            ? word
+            : before.toLowerCase() == before
+                ? after.toLowerCase()
+                : after.slice(0, 1).toUpperCase() + after.slice(1);
+    })
+    return replacedArr.join(' ');
+}
 
+// console.log(myReplace("Let us go to the store", "store", "mall")) // Let us go to the mall.
+// console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting")) //  He is Sitting on the couch.
+// console.log(myReplace("This has a spellngi error", "spellngi", "spelling")) //   This has a spelling error.
+// console.log(myReplace("I think we should look up there", "up", "Down")) //  I think we should look down there.
 
 // ----------------------------------------
+// DNA Pairing
+// The DNA strand is missing the pairing element.Take each character, get its pair, and return the results as a 2d array.
+// Base pairs are a pair of AT and CG.Match the missing element to the provided character.
 
+// Return the provided character as the first element in each array.
 
+// For example, for the input GCG, return [["G", "C"], ["C", "G"], ["G", "C"]]
 
+// The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.
 
+function pairElement(str) {
+    let finalArr = [];
+    for (let i of str) {
+        let pair = [i];
+        pair.push(i == 'A'
+            ? 'T' :
+            i == 'T'
+                ? 'A'
+                : i == 'G'
+                    ? 'C'
+                    : 'G')
+        finalArr.push(pair);
+        pair = [];
+    }
+    return finalArr;
+}
+
+// console.log(pairElement("ATCGA")) // [["A", "T"], ["T", "A"], ["C", "G"], ["G", "C"], ["A", "T"]].
+// console.log(pairElement("TTGAG")) // [["T", "A"], ["T", "A"], ["G", "C"], ["A", "T"], ["G", "C"]].
+// console.log(pairElement("CTCTA")) // [["C", "G"], ["T", "A"], ["C", "G"], ["T", "A"], ["A", "T"]].
 
 // ----------------------------------------
+// Missing letters
+// Find the missing letter in the passed letter range and return it.
 
+// If all letters are present in the range, return undefined.
 
+function fearNotLetter(str) {
+    let start = str.slice(0, 1);
+    let end = str.slice(str.length - 1);
+    let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    let comparison = '';
+    for (let i = 0; i < alphabet.length; i++) {
+        if (alphabet[i] == start) {
+            comparison = alphabet.slice(i);
+            break;
+        }
+    }
+    for (let i = 0; i < comparison.length; i++) {
+        if (comparison[i] == end) {
+            comparison = comparison.slice(0, i + 1);
+            break;
+        }
+    }
+    for (let letter of comparison) {
+        if (!str.includes(letter)) {
+            return letter;
+        }
+    }
+}
 
+// console.log(fearNotLetter("bcdf")) // e.
+// console.log(fearNotLetter("abcdefghijklmnopqrstuvwxyz")) // undefined.
 
 // ----------------------------------------
+// Sorted Union
+// Write a function that takes two or more arrays and returns a new array of unique values in the order of the original provided arrays.
 
+// In other words, all values present from all arrays should be included in their original order, but with no duplicates in the final array.
 
+// The unique numbers should be sorted by their original order, but the final array should not be sorted in numerical order.
 
+function uniteUnique(arr) {
+    let finalArr = [];
+    for (let i = 0; i < arguments.length; i++){
+        arguments[i].forEach(number => {
+            if (!finalArr.includes(number)) {
+                finalArr.push(number)
+            }
+        })
+    }
+    return finalArr;
+}
 
+// console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]))   // [1, 3, 2, 5, 4].
+// console.log(uniteUnique([1, 2, 3], [5, 2, 1]))  // [1, 2, 3, 5].
+// console.log(uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]))    // [1, 2, 3, 5, 4, 6, 7, 8].
 
 // ----------------------------------------
 
