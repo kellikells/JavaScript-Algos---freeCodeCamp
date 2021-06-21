@@ -37,10 +37,9 @@ numsArr = [1000, 500, 100, 50, 10, 5, 1];
 
 
 
-1 - figure out where to start
-2 - use a function to determin whether it should calculate down, or add up
-// 3 - the function will know, if it is 3 and under, 
-3 - if the length is equal by either going higher, or going lower, use the lower
+// 1 - figure out where to start
+// 2 - use a function to determin whether it should calculate down, or add up
+// 3 - if the length is equal by either going higher, or going lower, use the lower
 
 
 
@@ -68,7 +67,6 @@ function convertToRoman(num) {
     }
     // return str;
 }
-console.log(convertToRoman(5000));
 
 
 
@@ -76,54 +74,31 @@ console.log(convertToRoman(5000));
 // -----------------------------
 
 
+console.log(convertToRoman(2))  // II.
+console.log(convertToRoman(3))  // III.
+console.log(convertToRoman(4))  // IV.
+console.log(convertToRoman(5))  // V.
+console.log(convertToRoman(9))  // IX.
+console.log(convertToRoman(12)) // XII.
+console.log(convertToRoman(16)) // XVI.
+console.log(convertToRoman(29)) // XXIX.
+console.log(convertToRoman(44)) // XLIV.
+console.log(convertToRoman(45)) // XLV.
+console.log(convertToRoman(68)) // LXVIII
+console.log(convertToRoman(83)) // LXXXIII
+console.log(convertToRoman(97)) // XCVII
+console.log(convertToRoman(99)) // XCIX
+console.log(convertToRoman(400))    // CD
+console.log(convertToRoman(500))    // D
+console.log(convertToRoman(501))    // DI
+console.log(convertToRoman(649))    // DCXLIX
+console.log(convertToRoman(798))    // DCCXCVIII
+console.log(convertToRoman(891))    // DCCCXCI
+console.log(convertToRoman(1000))   // M
+console.log(convertToRoman(1004))   // MIV
+console.log(convertToRoman(1006))   // MVI
+console.log(convertToRoman(1023))   // MXXIII
+console.log(convertToRoman(2014))   // MMXIV
+console.log(convertToRoman(3999))   // MMMCMXCIX
 
-// function convertToRoman(num) {
-//     let start = 0;
-//     let answer = '';
-//     while (start != num) {
-//         answer += I[1];
-//         start += I[0]
-//     }
-//     // start += I[0];
-//     console.log(`start ${start}`);
-//     console.log(`answer ${answer}`);
-// }
-
-
-
-// -----------------------------
-// function convertToRoman(num) {
-//     let numArr = String(num).split('');
-
-//     console.log(numArr);
-
-//     let romanArr = [];
-//     numArr.forEach((item, index) => {
-//         if (item >= 1 && item <= 3 && index==0) {
-//             romanArr.push('X'.repeat(item));
-//             // romanArr.push('L'.repeat())
-//         }
-//         if (item == 4 && index == 0) {
-//             romanArr.push('XL');
-//         }
-
-//         if (item >= 5 && item <=8 && index == 0) {
-//             romanArr.push('L');
-//             romanArr.push('X'.repeat(item-5))
-//         }
-//     })
-//     console.log(romanArr);
-//     // console.log(numArr);
-
-//     return num;
-// }
-
-// convertToRoman(36);
-// //  XXXVI
-// convertToRoman(40);
-// convertToRoman(51);
-// convertToRoman(60);
-// convertToRoman(70);
-// convertToRoman(80);
-// convertToRoman(90);
 
